@@ -17,6 +17,7 @@ public class Teleporter : MonoBehaviour {
 			Vector3 portalToPlayer = rb.position - transform.position;
 
 			//Checks if the player is facing the portal and if so teleports them
+			// to the destination portal
 			Debug.Log(Vector3.Dot(transform.up, portalToPlayer));
 			if (Vector3.Dot(transform.up, portalToPlayer) <= 0f) {
 				Vector3 positionOffset = Quaternion.Euler(0f, 0f, 0f) * portalToPlayer;
@@ -28,7 +29,6 @@ public class Teleporter : MonoBehaviour {
 	}
 
 	void OnTriggerEnter (Collider other) {
-		Debug.Log("hello: " +other.tag);
 		if (other.tag == "Player") {
 			Debug.Log("Player entered the portal");
 			isPlayerOverlapping = true;

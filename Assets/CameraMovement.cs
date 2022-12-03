@@ -67,6 +67,5 @@ public class CameraMovement : MonoBehaviour {
 		//move the player unless they are colliding with something
 		rb.MovePosition(rb.position + ((movementDirection * speed * Time.fixedDeltaTime)/2));
 		// rb.AddForce(movementDirection.normalized * speed, ForceMode.Acceleration);
-		//set transform position to rigidbody position
 	}
 }
