@@ -13,13 +13,19 @@ public class CameraMovement : MonoBehaviour {
 	float verticalMovement;
 
 	float speed = 5f;
-
 	float rotation;
+
+	[SerializeField] Texture2D cursor;
+	Rect cursorPosition;
 
 	Vector3 movementDirection;
 
 	void Start() {
 		transform.Rotate(new Vector3(0, Input.GetAxisRaw("Mouse X") * 3, 0));
+
+		// Creates a rectangle for the cursor to be drawn in the center of the screen
+		cursorPosition = new Rect((Screen.width - cursor.width) / 2, (Screen.height - cursor.height) /2, cursor.width, cursor.height);
+		Cursor.lockState = CursorLockMode.Locked;
 
 		rb = GetComponent<Rigidbody>();
 		rb.freezeRotation = true;
@@ -67,5 +73,10 @@ public class CameraMovement : MonoBehaviour {
 		//move the player unless they are colliding with something
 		rb.MovePosition(rb.position + ((movementDirection * speed * Time.fixedDeltaTime)/2));
 		// rb.AddForce(movementDirection.normalized * speed, ForceMode.Acceleration);
+	}
+
+	void OnGUI() {
+		//Draws the cursor in the center of the screen
+		GUI.DrawTexture(cursorPosition, cursor);
 	}
 }
