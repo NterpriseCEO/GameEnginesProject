@@ -20,6 +20,9 @@ public class CameraMovement : MonoBehaviour {
 
 	Vector3 movementDirection;
 
+	float xRotation = 0f;
+	float yRotation = 0f;
+
 	void Start() {
 		transform.Rotate(new Vector3(0, Input.GetAxisRaw("Mouse X") * 3, 0));
 
@@ -38,33 +41,15 @@ public class CameraMovement : MonoBehaviour {
 		horizontalMovement = Input.GetAxisRaw("Horizontal");
 		verticalMovement = Input.GetAxisRaw("Vertical");
 
-		movementDirection = transform.forward * verticalMovement + transform.right * horizontalMovement;
+		// Sets the direction the player is moving in
+		movementDirection = new Vector3(transform.forward.x, 0, transform.forward.z).normalized * verticalMovement + transform.right * horizontalMovement;
 
-		// Debug.Log(movementDirection);
-
-		//Moves the camera in the direction of the mouse
-		//Forwards and backwards
-		// if (Input.GetAxisRaw("Vertical") != 0) {
-		// 	//move camera if it is not colliding with anything
-
-		// 	transform.position = transform.position + camera.forward * Time.deltaTime * 2 * Input.GetAxisRaw("Vertical");
-		// }
-		// //Left and right
-		// if(Input.GetAxisRaw("Horizontal") != 0) {
-		// 	transform.position = transform.position + camera.right * Time.deltaTime * 2 * Input.GetAxisRaw("Horizontal");
-		// }
 
 		//Rotates the camera with the mouse
-		if(Input.GetAxisRaw("Mouse X") != 0) {
-			transform.Rotate(new Vector3(0, Input.GetAxisRaw("Mouse X") * 3, 0));
-		}
+		xRotation -= Mathf.Clamp(Input.GetAxisRaw("Mouse Y"), -30f, 30f);
+		yRotation += Input.GetAxisRaw("Mouse X") * 3;
 
-		// rotation = Input.GetAxisRaw("Mouse X") * 3 * 0.1f;
-
-		// rotation = Mathf.Clamp(rotation, -90f, 90f)
-
-		// camera.transform.localRotation = Quaternion.Euler(rotation, 0, 0);
-		// transform.rotation = Quaternion.Euler(0, 0, 0);
+		transform.rotation = Quaternion.Euler(xRotation, yRotation, 0f);
 
 		transform.position = rb.position;
 	}

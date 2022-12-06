@@ -19,7 +19,7 @@ public class Teleporter : MonoBehaviour {
 			//Checks if the player is facing the portal and if so teleports them
 			// to the destination portal
 			Debug.Log(Vector3.Dot(transform.up, portalToPlayer));
-			if (Vector3.Dot(transform.up, portalToPlayer) <= 0f) {
+			if (Vector3.Dot(transform.up, portalToPlayer) == 0f) {
 				Vector3 positionOffset = Quaternion.Euler(0f, 0f, 0f) * portalToPlayer;
 				rb.position = destination.position + positionOffset;
 				player.position = rb.position;
