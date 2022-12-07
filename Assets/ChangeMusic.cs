@@ -5,31 +5,43 @@ using UnityEngine;
 public class ChangeMusic : MonoBehaviour {
 	private Camera camera;
 
-	//A list of all the songs
+	// A list of all the songs
 	[SerializeField] AudioClip track1;
 	[SerializeField] AudioClip track2;
 	[SerializeField] AudioClip gameDevAssignment;
 	[SerializeField] AudioClip sweetNothings;
 	[SerializeField] AudioClip futureFunk;
 
+	// The tonearm parent game object
+	GameObject armParent;
+
+	// The audio source attached to the hi fi system
 	AudioSource audioSource;
 
-	private AudioClip[] songs;
+	private Song[] songs;
 
+	// The current position in the songs array
 	private int position = 0;
 
 	// Use this for initialization
 	void Start() {
-		songs = new AudioClip[] { track1, track2, gameDevAssignment, sweetNothings, futureFunk };
+		songs = new Song[] {
+			new Song(track1, 0),
+			new Song(track2, 2.388779395296753f),
+			new Song(gameDevAssignment, 5.270481522956327f),
+			new Song(sweetNothings, 10.74950727883539f),
+			new Song(futureFunk, 15.41331466965286f)
+		};
 
 		// Gets the parent game objects audio source
 		audioSource = transform.parent.gameObject.GetComponent<AudioSource>();
+		armParent = GameObject.Find("Arm Parent");
 	}
 
 
 	// Update is called once per frame
 	void Update() {
-		//Check for mouse click 
+		// Check for mouse click 
 		if (Input.GetMouseButtonDown(0)) {
 			RaycastHit raycast;
 			// get camera by name
@@ -38,10 +50,11 @@ public class ChangeMusic : MonoBehaviour {
 			if (Physics.Raycast(ray, out raycast, 100f)) {
 				Debug.Log(raycast.transform.gameObject.name);
 				if (raycast.transform != null & raycast.transform.gameObject == gameObject) {
-					// Get the parent game object and get the audio source
-					// change the audio clip
+					// Changes the audio clip
 					position = (position + 1) % songs.Length;
-					audioSource.clip = songs[position];
+					audioSource.clip = songs[position].clip;
+					// get the Arm Parent object
+					armParent.transform.rotation = Quaternion.Euler(0, songs[position].time, 0);
 					// play the audio clip
 					audioSource.Play();
 				}
@@ -51,8 +64,24 @@ public class ChangeMusic : MonoBehaviour {
 		if(audioSource.isPlaying == false) {
 			// change the audio clip
 			position = (position + 1) % songs.Length;
-			audioSource.clip = songs[position];
+			audioSource.clip = songs[position].clip;
 			audioSource.Play();
+
+			if(position == 0) {
+				armParent.transform.rotation = Quaternion.Euler(0, 0, 0);
+			}
 		}
 	}
+}
+
+//class Song
+class Song {
+	public Song(AudioClip clip, float time) {
+		this.clip = clip;
+		// The time represents the rotation of the arm parent
+		this.time = time;
+	}
+
+	public AudioClip clip { get; set; }
+	public float time { get; set; }
 }
