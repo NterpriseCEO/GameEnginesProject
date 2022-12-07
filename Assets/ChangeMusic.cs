@@ -54,7 +54,7 @@ public class ChangeMusic : MonoBehaviour {
 					position = (position + 1) % songs.Length;
 					audioSource.clip = songs[position].clip;
 					// get the Arm Parent object
-					armParent.transform.rotation = Quaternion.Euler(0, songs[position].time, 0);
+					armParent.transform.localRotation = Quaternion.Euler(0, songs[position].time, 0);
 					// play the audio clip
 					audioSource.Play();
 				}
@@ -68,7 +68,7 @@ public class ChangeMusic : MonoBehaviour {
 			audioSource.Play();
 
 			if(position == 0) {
-				armParent.transform.rotation = Quaternion.Euler(0, 0, 0);
+				armParent.transform.localRotation = Quaternion.Euler(0, 0, 0);
 			}
 		}
 	}
