@@ -42,22 +42,29 @@ public class CameraMovement : MonoBehaviour {
 		verticalMovement = Input.GetAxisRaw("Vertical");
 
 		// Sets the direction the player is moving in
-		movementDirection = new Vector3(transform.forward.x, 0, transform.forward.z).normalized * verticalMovement + transform.right * horizontalMovement;
-
-
+		if(horizontalMovement != 0 || verticalMovement != 0) {
+			movementDirection = new Vector3(transform.forward.x, 0, transform.forward.z) * verticalMovement + transform.right * horizontalMovement;
+			movementDirection.Normalize();
+		}
 		//Rotates the camera with the mouse
 		xRotation -= Mathf.Clamp(Input.GetAxisRaw("Mouse Y"), -30f, 30f);
 		yRotation += Input.GetAxisRaw("Mouse X") * 3;
 
-		transform.rotation = Quaternion.Euler(xRotation, yRotation, 0f);
+		//set rigidbody rotation
+		rb.rotation = Quaternion.Euler(xRotation, yRotation, 0f);
 
-		transform.position = rb.position;
+		// transform.rotation = Quaternion.Euler(xRotation, yRotation, 0f);
+
+		// transform.position = rb.position;
 	}
 
 	void FixedUpdate() {
 		//move the player unless they are colliding with something
-		rb.MovePosition(rb.position + ((movementDirection * speed * Time.fixedDeltaTime)/2));
-		// rb.AddForce(movementDirection.normalized * speed, ForceMode.Acceleration);
+		Debug.Log(horizontalMovement + " " + verticalMovement);
+		if(horizontalMovement != 0 || verticalMovement != 0) {
+			rb.MovePosition(rb.position + ((movementDirection * speed * Time.fixedDeltaTime)/2));
+			// rb.AddForce(movementDirection.normalized * speed, ForceMode.Acceleration);
+		}
 	}
 
 	void OnGUI() {
