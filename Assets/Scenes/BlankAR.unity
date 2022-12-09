@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 26873516}
   - component: {fileID: 26873515}
   - component: {fileID: 26873514}
+  - component: {fileID: 26873517}
   m_Layer: 0
   m_Name: 433
   m_TagString: Untagged
@@ -222,6 +223,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 26873512}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &26873517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26873512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee15fc0e1f1aa14ab30a3ed3b5c055e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 722474630}
+  scaleX: 5
+  scaleY: 5
 --- !u!1001 &30151558
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1736,6 +1752,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 329280632}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &341972034 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2041982052124124668, guid: 6f3a6c3e20980de4b82b04838122eb77,
+    type: 3}
+  m_PrefabInstance: {fileID: 1071072682}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &360528763
 GameObject:
   m_ObjectHideFlags: 0
@@ -17067,6 +17089,7 @@ GameObject:
   - component: {fileID: 895861603}
   - component: {fileID: 895861602}
   - component: {fileID: 895861601}
+  - component: {fileID: 895861604}
   m_Layer: 0
   m_Name: Shosty2
   m_TagString: Untagged
@@ -17153,6 +17176,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 895861599}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &895861604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895861599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee15fc0e1f1aa14ab30a3ed3b5c055e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 722474630}
+  scaleX: 3
+  scaleY: 3
 --- !u!1 &936136347
 GameObject:
   m_ObjectHideFlags: 0
@@ -29273,7 +29311,7 @@ TerrainCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1021727704}
   m_Material: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_TerrainData: {fileID: 15600000, guid: ae894187d5aeb274987249abb02a5aea, type: 2}
   m_EnableTreeColliders: 1
 --- !u!218 &1021727707
@@ -30003,6 +30041,21 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1071072682}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1071072684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341972034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee15fc0e1f1aa14ab30a3ed3b5c055e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 722474630}
+  scaleX: 1
+  scaleY: 1
 --- !u!1 &1073847132
 GameObject:
   m_ObjectHideFlags: 0
@@ -30174,6 +30227,7 @@ GameObject:
   - component: {fileID: 1116699787}
   - component: {fileID: 1116699789}
   - component: {fileID: 1116699788}
+  - component: {fileID: 1116699790}
   m_Layer: 0
   m_Name: Fire
   m_TagString: Untagged
@@ -34975,6 +35029,21 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &1116699790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116699786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee15fc0e1f1aa14ab30a3ed3b5c055e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 722474630}
+  scaleX: 1
+  scaleY: 1
 --- !u!1 &1126669100
 GameObject:
   m_ObjectHideFlags: 0
@@ -36070,7 +36139,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 60
+  far clip plane: 6000
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -36114,6 +36183,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1158167702}
   - component: {fileID: 1158167703}
+  - component: {fileID: 1158167704}
   m_Layer: 0
   m_Name: Bottom
   m_TagString: Untagged
@@ -36150,6 +36220,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ac2a435c9afb0849b95d30cc12196a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1158167704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158167701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee15fc0e1f1aa14ab30a3ed3b5c055e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 722474630}
+  scaleX: 1
+  scaleY: 1
 --- !u!1 &1175556376
 GameObject:
   m_ObjectHideFlags: 0
@@ -37663,6 +37748,7 @@ GameObject:
   - component: {fileID: 1454434660}
   - component: {fileID: 1454434659}
   - component: {fileID: 1454434658}
+  - component: {fileID: 1454434661}
   m_Layer: 0
   m_Name: Shosty1
   m_TagString: Untagged
@@ -37749,6 +37835,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1454434656}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1454434661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454434656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee15fc0e1f1aa14ab30a3ed3b5c055e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 722474630}
+  scaleX: 3
+  scaleY: 3
 --- !u!1 &1461897871
 GameObject:
   m_ObjectHideFlags: 0
@@ -38103,7 +38204,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 60
+  far clip plane: 6000
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -39281,6 +39382,7 @@ GameObject:
   - component: {fileID: 1854479702}
   - component: {fileID: 1854479701}
   - component: {fileID: 1854479700}
+  - component: {fileID: 1854479703}
   m_Layer: 0
   m_Name: Shosty3
   m_TagString: Untagged
@@ -39367,6 +39469,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1854479698}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1854479703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854479698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee15fc0e1f1aa14ab30a3ed3b5c055e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 722474630}
+  scaleX: 3
+  scaleY: 3
 --- !u!1 &1861135884
 GameObject:
   m_ObjectHideFlags: 0
@@ -40768,6 +40885,7 @@ GameObject:
   - component: {fileID: 2120003660}
   - component: {fileID: 2120003659}
   - component: {fileID: 2120003658}
+  - component: {fileID: 2120003661}
   m_Layer: 0
   m_Name: Starship
   m_TagString: Untagged
@@ -40854,6 +40972,42 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2120003656}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2120003661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120003656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee15fc0e1f1aa14ab30a3ed3b5c055e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 722474630}
+  scaleX: 10
+  scaleY: 5
+--- !u!1 &2121913028 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2041982052124124668, guid: 6f3a6c3e20980de4b82b04838122eb77,
+    type: 3}
+  m_PrefabInstance: {fileID: 1030137758}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2121913029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121913028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee15fc0e1f1aa14ab30a3ed3b5c055e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 722474630}
+  scaleX: 1
+  scaleY: 1
 --- !u!1 &2134033920
 GameObject:
   m_ObjectHideFlags: 0

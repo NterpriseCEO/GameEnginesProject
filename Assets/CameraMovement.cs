@@ -60,7 +60,6 @@ public class CameraMovement : MonoBehaviour {
 
 	void FixedUpdate() {
 		//move the player unless they are colliding with something
-		Debug.Log(horizontalMovement + " " + verticalMovement);
 		if(horizontalMovement != 0 || verticalMovement != 0) {
 			rb.MovePosition(rb.position + ((movementDirection * speed * Time.fixedDeltaTime)/2));
 			// rb.AddForce(movementDirection.normalized * speed, ForceMode.Acceleration);
