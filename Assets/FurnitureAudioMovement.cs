@@ -14,6 +14,9 @@ public class FurnitureAudioMovement : MonoBehaviour {
 
 	[SerializeField] float scaleX = 1f;
 	[SerializeField] float scaleY = 1f;
+	[SerializeField] float scaleZ = 1f;
+	[SerializeField] bool scaleOnZ = true;
+	[SerializeField] float multiplier = 50f;
 
 	// Start is called before the first frame update
 	void Start() {
@@ -33,6 +36,6 @@ public class FurnitureAudioMovement : MonoBehaviour {
 		float average = sum / frameSize;
 		lerpedAverage = Mathf.Lerp(lerpedAverage, average, Time.deltaTime * 4);
 		//move furniture
-		transform.localScale = (new Vector3(lerpedAverage, lerpedAverage, lerpedAverage)*50)+new Vector3(scaleX, scaleY, 1);
+		transform.localScale = (new Vector3(lerpedAverage*multiplier, lerpedAverage*multiplier, scaleOnZ ? lerpedAverage*multiplier : scaleZ))+new Vector3(scaleX, scaleY, scaleOnZ ? scaleZ : 0);
 	}
 }
