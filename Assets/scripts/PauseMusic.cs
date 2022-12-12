@@ -18,17 +18,17 @@ public class PauseMusic : MonoBehaviour {
 		// Checks for mouse click 
 		if (Input.GetMouseButtonDown(0)) {
 			RaycastHit raycast;
-			// Get the primary camera by name
+			// Gets the primary camera by name
 			Camera camera = GameObject.Find("AR Camera").GetComponent<Camera>();
 			// Casts a ray from the camera to the mouse position
 			Ray ray = camera.ScreenPointToRay(Input.mousePosition);
 			if (Physics.Raycast(ray, out raycast, 100f)) {
 				if (raycast.transform != null & raycast.transform.gameObject == gameObject) {
-					// Mutes the audio source
+					// (Un)mutes the audio source
 					audioSource.mute = !audioSource.mute;
-					// Rotates the shape 20/-20 degrees on the y axis based on the current mute state
+					// Rotates the on/off switch 20/-20 degrees on the y axis based on the current mute state
 					transform.Rotate(0, audioSource.mute ? 20 : -20, 0);
-					// Sets the light's material colour to red / green based on the current mute state
+					// Sets the status light's material colour to red / green based on the current mute state
 					light.GetComponent<Renderer>().material.color = audioSource.mute ? Color.red : Color.green;
 				}
 			}

@@ -15,6 +15,7 @@ public class CameraMovement : MonoBehaviour {
 	float speed = 5f;
 	float rotation;
 
+	// The onscreen cursor
 	[SerializeField] Texture2D cursor;
 	Rect cursorPosition;
 
@@ -28,6 +29,7 @@ public class CameraMovement : MonoBehaviour {
 
 		// Creates a rectangle for the cursor to be drawn in the center of the screen
 		cursorPosition = new Rect((Screen.width - cursor.width) / 2, (Screen.height - cursor.height) /2, cursor.width, cursor.height);
+		// Locks the cursor to the center of the screen and hides it
 		Cursor.lockState = CursorLockMode.Locked;
 
 		rb = GetComponent<Rigidbody>();
@@ -52,17 +54,12 @@ public class CameraMovement : MonoBehaviour {
 
 		//set rigidbody rotation
 		rb.rotation = Quaternion.Euler(xRotation, yRotation, 0f);
-
-		// transform.rotation = Quaternion.Euler(xRotation, yRotation, 0f);
-
-		// transform.position = rb.position;
 	}
 
 	void FixedUpdate() {
 		//move the player unless they are colliding with something
 		if(horizontalMovement != 0 || verticalMovement != 0) {
 			rb.MovePosition(rb.position + ((movementDirection * speed * Time.fixedDeltaTime)/2));
-			// rb.AddForce(movementDirection.normalized * speed, ForceMode.Acceleration);
 		}
 	}
 

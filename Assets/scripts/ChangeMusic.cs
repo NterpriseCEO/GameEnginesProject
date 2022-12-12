@@ -41,21 +41,22 @@ public class ChangeMusic : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
-		// Check for mouse click 
+		// Checks for mouse click 
 		if (Input.GetMouseButtonDown(0)) {
 			RaycastHit raycast;
-			// get camera by name
+			// Gets camera by name
 			Camera camera = GameObject.Find("AR Camera").GetComponent<Camera>();
 			Ray ray = camera.ScreenPointToRay(Input.mousePosition);
 			if (Physics.Raycast(ray, out raycast, 100f)) {
 				Debug.Log(raycast.transform.gameObject.name);
+				// Checks if the raycast hit the game object
 				if (raycast.transform != null & raycast.transform.gameObject == gameObject) {
 					// Changes the audio clip
 					position = (position + 1) % songs.Length;
 					audioSource.clip = songs[position].clip;
-					// get the Arm Parent object
+					// Gets the Arm Parent object
 					armParent.transform.localRotation = Quaternion.Euler(0, songs[position].time, 0);
-					// play the audio clip
+					// Plays the audio clip
 					audioSource.Play();
 				}
 			}
@@ -67,6 +68,7 @@ public class ChangeMusic : MonoBehaviour {
 			audioSource.clip = songs[position].clip;
 			audioSource.Play();
 
+			// Rotates the arm parent back to the start if the last song has finished playing
 			if(position == 0) {
 				armParent.transform.localRotation = Quaternion.Euler(0, 0, 0);
 			}
@@ -74,7 +76,6 @@ public class ChangeMusic : MonoBehaviour {
 	}
 }
 
-//class Song
 class Song {
 	public Song(AudioClip clip, float time) {
 		this.clip = clip;

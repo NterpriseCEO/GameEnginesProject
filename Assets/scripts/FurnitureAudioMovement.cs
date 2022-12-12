@@ -35,7 +35,7 @@ public class FurnitureAudioMovement : MonoBehaviour {
 		// The size of the object is based on the average of the samples
 		float average = sum / frameSize;
 		lerpedAverage = Mathf.Lerp(lerpedAverage, average, Time.deltaTime * 4);
-		//move furniture
+		//Scales the furniture based on the average of the samples
 		transform.localScale = (new Vector3(lerpedAverage*multiplier, lerpedAverage*multiplier, scaleOnZ ? lerpedAverage*multiplier : scaleZ))+new Vector3(scaleX, scaleY, scaleOnZ ? scaleZ : 0);
 	}
 }

@@ -17,18 +17,15 @@ public class PortalTextureSetup : MonoBehaviour {
 		if (cameraA.targetTexture != null) {
 			cameraA.targetTexture.Release();
 		}
+		// Sets the camera's render texture to the size of the screen
 		cameraA.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
 		cameraMatA.mainTexture = cameraA.targetTexture;
 
 		if (cameraB.targetTexture != null) {
 			cameraB.targetTexture.Release();
 		}
+		// Sets the camera's render texture to the size of the screen
 		cameraB.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
 		cameraMatB.mainTexture = cameraB.targetTexture;
-	}
-
-	// Update is called once per frame
-	void Update() {
-
 	}
 }

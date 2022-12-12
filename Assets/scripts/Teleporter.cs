@@ -11,14 +11,15 @@ public class Teleporter : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
-		//get player rigidbody
+		//Gets player rigidbody
 		Rigidbody rb = player.GetComponent<Rigidbody>();
 		if (isPlayerOverlapping) {
 			Vector3 portalToPlayer = rb.position - transform.position;
 
-			//Checks if the player is facing the portal and if so teleports them
+			// Checks if the player is facing the portal and if so teleports them
 			// to the destination portal
 			if (Vector3.Dot(transform.up, portalToPlayer) <= 0f) {
+				// Teleports the player to the destination portal location
 				Vector3 positionOffset = Quaternion.Euler(0f, 0f, 0f) * portalToPlayer;
 				rb.position = destination.position + positionOffset;
 				player.position = rb.position;
