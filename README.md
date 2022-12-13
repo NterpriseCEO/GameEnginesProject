@@ -33,7 +33,7 @@ The house is a simple 3d model made in probuilder. It is textured using images g
 | PortalTextureSetup | Modified from [here](https://www.youtube.com/watch?v=cuQao3hEKfs) |
 | RotateArm.cs | Self written |
 | RotateRecord.cs | Self written |
-| Telporter.cs | Self written |
+| Telporter.cs | Modified from [here](https://www.youtube.com/watch?v=cuQao3hEKfs) |
 | TVTurnOn.cs | Self written |
 
 # What I am most proud of in the assignment
